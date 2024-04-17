@@ -1,5 +1,5 @@
 %global forgeurl https://github.com/PoppenCast/systemd-formula
-%global tag poppencast-salt-formula-systemd-0.0.2-1
+%global tag poppencast-salt-formula-systemd-0.0.3-1
 %forgemeta
 
 Name:    poppencast-salt-formula-systemd
@@ -29,14 +29,14 @@ SaltStack formula to set up and configure systemd.}
 # TODO: build and testing, for now this package only "zips up"
 
 %install
-install -d -m 755 %{buildroot}%{_datadir}/salt/formulas/systemd-formula
-cp -R --no-dereference --preserve=mode,links -v systemd %{buildroot}%{_datadir}/salt/formulas/systemd-formula/
+install -d -m 755 %{buildroot}%{_datadir}/salt/formulas/systemd
+cp -R --no-dereference --preserve=mode,links -v systemd %{buildroot}%{_datadir}/salt/formulas/systemd/
 
 %check
 # TODO: build and testing, for now this package only "zips up"
 
 %files
-%{_datadir}/salt/formulas/systemd-formula/
+%{_datadir}/salt/formulas/systemd/
 %doc docs/README.rst
 %license LICENSE
 
