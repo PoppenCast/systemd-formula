@@ -44,6 +44,9 @@ cp -R --no-dereference --preserve=mode,links -v systemd %{buildroot}%{_datadir}/
 * Wed Apr 17 2024 Ewout van Mansom <ewout@vanmansom.name> 0.0.2-1
 - feat(rpm): normalize installation path (ewout@vanmansom.name)
 
+* Wed Apr 17 2024 Ewout van Mansom <ewout@vanmansom.name> 0.0.2-1
+- feat(rpm): normalize installation path (ewout@vanmansom.name)
+
 * Wed Apr 17 2024 Ewout van Mansom <ewout@vanmansom.name> 0.0.1-1
 - new package built with tito
 
