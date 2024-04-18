@@ -3,7 +3,7 @@
 %forgemeta
 
 Name:    poppencast-salt-formula-systemd
-Version: 0.0.3
+Version: 0.0.4
 Release: 1%{?dist}
 Summary: SaltStack formula for systemd
 
@@ -41,6 +41,9 @@ cp -R --no-dereference --preserve=mode,links -v systemd %{buildroot}%{_datadir}/
 %license LICENSE
 
 %changelog
+* Thu Apr 18 2024 Ewout van Mansom <ewout@vanmansom.name> 0.0.4-1
+- fix(units): only call enable when requested (ewout@vanmansom.name)
+
 * Wed Apr 17 2024 Ewout van Mansom <ewout@vanmansom.name> 0.0.3-1
 - feat(rpm): normalize path even more (ewout@vanmansom.name)
 
