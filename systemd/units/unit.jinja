@@ -1,14 +1,14 @@
 {%- macro unit_block(config) %}
   {%- for section, sectioncontent in config.items() %}
     {%- if section not in ['enabled', 'status', 'dropin'] %}
-  [{{ section }}]
+[{{ section }}]
       {%- for key, value in sectioncontent.items() %}
 	{%- if value is list %}
 	  {%- for v in value %}
-  {{ key }}={{ v }}
+{{ key }}={{ v }}
 	  {%- endfor %}
 	{%- else %}
-  {{ key }}={{ value }}
+{{ key }}={{ value }}
 	{%- endif -%}
       {%- endfor %}
     {%- endif %}
