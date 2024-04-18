@@ -1,5 +1,5 @@
 %global forgeurl https://github.com/PoppenCast/systemd-formula
-%global tag poppencast-salt-formula-systemd-0.0.6-1
+%global tag poppencast-salt-formula-systemd-0.0.7-1
 %forgemeta
 
 Name:    poppencast-salt-formula-systemd
