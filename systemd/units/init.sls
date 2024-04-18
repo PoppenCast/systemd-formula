@@ -6,7 +6,6 @@ include:
 {% for unittype, units in pillar.get('systemd', {}).items()  %}
   {% if unittype in unittypes.get('Valid') %}
     {% for unit, unitconfig in units.items() %}
-      {% set unit_status = 'disable' if unitconfig.enabled is defined and unitconfig.enabled == false else 'enable' %}
       {% set dropin = unitconfig.dropin | default(false) %}
 
 systemd_systemd_units_file_{{ unit }}_{{ unittype }}:
@@ -24,11 +23,14 @@ systemd_systemd_units_file_{{ unit }}_{{ unittype }}:
     - watch_in:
       - cmd: reload_systemd_configuration
 
+      {% if unitconfig.enabled is defined %}
+      {% set unit_status = 'disable' if unitconfig.enabled == false else 'enable' %}
 systemd_systemd_units_cmd_enable_or_disable_{{ unit }}_{{ unittype }}:
   cmd.wait:  # noqa: 213
     - name: systemctl {{ unit_status }} {{ unit }}.{{ unittype }}
     - watch:
       - cmd: reload_systemd_configuration
+      {% endif %}
 
       {% if (unittype == 'service' or unittype == 'path') %}
         {% set activation_status = unitconfig.status if unitconfig.status is defined and unitconfig.status == 'start' else 'stop' %}
